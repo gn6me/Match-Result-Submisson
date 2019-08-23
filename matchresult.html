@@ -1,0 +1,480 @@
+<html>
+<head>
+    <title>Match Result Form</title>
+
+<style>
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        /*margin-right: -15px;
+        margin-left: -15px;*/
+        text-align: center;
+    }
+    .col-3 {
+        flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .col-12 {
+        flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .class-select { margin: 50px 0; }
+    .class-select input {
+        margin:0;padding:0;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+    }
+    .class-select input:active +.hs-class {
+        opacity: .9;
+    }
+    .class-select input:checked +.hs-class {
+        -webkit-filter: none;
+        -moz-filter: none;
+        filter: none;
+    }
+    .hs-class {
+        cursor:pointer;
+        background-size:contain;
+        background-repeat:no-repeat;
+        display:inline-block;
+        width:48px;height:48px;
+        -webkit-transition: all 100ms ease-in;
+        -moz-transition: all 100ms ease-in;
+        transition: all 100ms ease-in;
+        -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+        filter: brightness(1.8) grayscale(1) opacity(.7);
+    }
+    .hs-class:hover {
+        -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+        filter: brightness(1.2) grayscale(.5) opacity(.9);
+    }
+    .warrior { background-image:url(https://i.imgur.com/nC0sxue.png); }
+    .shaman { background-image:url(https://i.imgur.com/lD24W3w.png); }
+    .rogue { background-image:url(https://i.imgur.com/AXIgwwg.png); }
+    .paladin { background-image:url(https://i.imgur.com/jadSsiU.png); }
+    .hunter { background-image:url(https://i.imgur.com/Gg7sALB.png); }
+    .druid { background-image:url(https://i.imgur.com/eLgokkJ.png); }
+    .warlock { background-image:url(https://i.imgur.com/OUq3n2v.png); }
+    .mage { background-image:url(https://i.imgur.com/beT74xn.png); }
+    .priest { background-image:url(https://i.imgur.com/3ug8zp1.png); }
+
+    .game {
+        align-items: center!important;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+        display: flex;
+        justify-content: center;
+    }
+    #g1p1,#g1p2,#g2p1,#g2p2,#g32p1,#g3p2 { border: 1px solid white; }
+    .win {
+        border: 1px solid green !important;
+        padding: 10px 0;
+    }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="">
+
+    <div class="row">
+        <div class="col-6">
+            <label>Player 1</label>
+            <select>
+                <option value="" disabled selected>Select player 1</option>
+                <option value="mrgn0me#1196">mrgn0me</option>
+            </select>
+        </div>
+        <div class="col-6">
+            <label>Player 2</label>
+            <select>
+                <option value="" disabled selected>Select player 2</option>
+                <option value="mrgn0me#1196">mrgn0me</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Shielded Class 1</label>
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior" name="s1" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior"></label>
+                <input id="shaman" name="s1" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman"></label>
+                <input id="rogue" name="s1" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin" name="s1" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin"></label>
+                <input id="hunter" name="s1" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter"></label>
+                <input id="druid" name="s1" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock" name="s1" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock"></label>
+                <input id="mage" name="s1" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage"></label>
+                <input id="priest" name="s1" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest"></label>
+            </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <label>Shielded Class 2</label>
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior1" name="s2" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior1"></label>
+                <input id="shaman1" name="s2" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman1"></label>
+                <input id="rogue1" name="s2" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue1"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin1" name="s2" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin1"></label>
+                <input id="hunter1" name="s2" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter1"></label>
+                <input id="druid1" name="s2" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid1"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock1" name="s2" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock1"></label>
+                <input id="mage1" name="s2" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage1"></label>
+                <input id="priest1" name="s2" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest1"></label>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <label>Banned Class 1</label>
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior2" name="s3" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior2"></label>
+                <input id="shaman2" name="s3" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman2"></label>
+                <input id="rogue2" name="s3" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue2"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin2" name="s3" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin2"></label>
+                <input id="hunter2" name="s3" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter2"></label>
+                <input id="druid2" name="s3" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid2"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock2" name="s3" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock2"></label>
+                <input id="mage2" name="s3" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage2"></label>
+                <input id="priest2" name="s3" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest2"></label>
+            </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <label>Banned Class 2</label>
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior3" name="s4" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior3"></label>
+                <input id="shaman3" name="s4" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman3"></label>
+                <input id="rogue3" name="s4" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue3"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin3" name="s4" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin3"></label>
+                <input id="hunter3" name="s4" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter3"></label>
+                <input id="druid3" name="s4" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid3"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock4" name="s4" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock4"></label>
+                <input id="mage4" name="s4" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage4"></label>
+                <input id="priest4" name="s4" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest4"></label>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div id="g1p1">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior5" name="s5" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior5"></label>
+                <input id="shaman5" name="s5" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman5"></label>
+                <input id="rogue5" name="s5" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue5"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin5" name="s5" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin5"></label>
+                <input id="hunter5" name="s5" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter5"></label>
+                <input id="druid5" name="s5" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid5"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock5" name="s5" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock5"></label>
+                <input id="mage5" name="s5" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage5"></label>
+                <input id="priest5" name="s5" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest5"></label>
+            </div>
+            </div>
+            <button id="wg1p1" class="game-1" type="button" value="win-game-1-p1">Win</button>
+            </div>
+        </div>
+        <div class="col-3 game">Game 1</div>
+        <div class="col-3">
+            <div id="g1p2">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior6" name="s6" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior6"></label>
+                <input id="shaman6" name="s6" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman6"></label>
+                <input id="rogue6" name="s6" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue6"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin6" name="s6" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin6"></label>
+                <input id="hunter6" name="s6" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter6"></label>
+                <input id="druid6" name="s6" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid6"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock6" name="s6" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock6"></label>
+                <input id="mage6" name="s6" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage6"></label>
+                <input id="priest6" name="s6" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest6"></label>
+            </div>
+            </div>
+            <button id="wg1p2" class="game-1" type="button" value="win-game-1-p2">Win</button>
+            </div>
+        </div>
+    </div>
+    <input id="game1-result" type="text" value="" hidden>
+
+    <div class="row">
+        <div class="col-3">
+            <div id="g2p1">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior7" name="s7" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior7"></label>
+                <input id="shaman7" name="s7" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman7"></label>
+                <input id="rogue7" name="s7" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue7"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin7" name="s7" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin7"></label>
+                <input id="hunter7" name="s7" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter7"></label>
+                <input id="druid7" name="s7" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid7"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock7" name="s7" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock7"></label>
+                <input id="mage7" name="s7" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage7"></label>
+                <input id="priest7" name="s7" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest7"></label>
+            </div>
+            </div>
+            <button id="wg2p1" class="game-2" type="button" value="win-game-2-p1">Win</button>
+            </div>
+        </div>
+        <div class="col-3 game">Game 2</div>
+        <div class="col-3">
+            <div id="g2p2">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior8" name="s8" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior8"></label>
+                <input id="shaman8" name="s8" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman8"></label>
+                <input id="rogue8" name="s8" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue8"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin8" name="s8" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin8"></label>
+                <input id="hunter8" name="s8" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter8"></label>
+                <input id="druid8" name="s8" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid8"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock8" name="s8" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock8"></label>
+                <input id="mage8" name="s8" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage8"></label>
+                <input id="priest8" name="s8" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest8"></label>
+            </div>
+            </div>
+            <button id="wg2p2" class="game-2" type="button" value="win-game-2-p2">Win</button>
+            </div>
+        </div>
+    </div>
+    <input id="game2-result" type="text" value="" hidden>
+
+    <div class="row">
+        <div class="col-3">
+            <div id="g3p1">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior9" name="s9" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior9"></label>
+                <input id="shaman9" name="s9" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman9"></label>
+                <input id="rogue9" name="s9" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue9"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin9" name="s9" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin9"></label>
+                <input id="hunter9" name="s9" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter9"></label>
+                <input id="druid9" name="s9" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid9"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock9" name="s9" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock9"></label>
+                <input id="mage9" name="s9" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage9"></label>
+                <input id="priest9" name="s9" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest9"></label>
+            </div>
+            </div>
+            <button id="wg3p1" class="game-3" type="button" value="win-game-3-p1">Win</button>
+            </div>
+        </div>
+        <div class="col-3 game">Game 3</div>
+        <div class="col-3">
+            <div id="g3p2">
+            <div class="class-select">
+            <div class="col-12">
+                <input id="warrior0" name="s0" type="radio" value="Warrior">
+                <label class="hs-class warrior" for="warrior0"></label>
+                <input id="shaman0" name="s0" type="radio" value="Shaman">
+                <label class="hs-class shaman" for="shaman0"></label>
+                <input id="rogue0" name="s0" type="radio" value="Rogue">
+                <label class="hs-class rogue" for="rogue0"></label>
+            </div>
+            <div class="col-12">
+                <input id="paladin0" name="s0" type="radio" value="Paladin">
+                <label class="hs-class paladin" for="paladin0"></label>
+                <input id="hunter0" name="s0" type="radio" value="Hunter">
+                <label class="hs-class hunter" for="hunter0"></label>
+                <input id="druid0" name="s0" type="radio" value="Druid">
+                <label class="hs-class druid" for="druid0"></label>
+            </div>
+            <div class="col-12">
+                <input id="warlock0" name="s0" type="radio" value="Warlock">
+                <label class="hs-class warlock" for="warlock0"></label>
+                <input id="mage0" name="s0" type="radio" value="Mage">
+                <label class="hs-class mage" for="mage0"></label>
+                <input id="priest0" name="s0" type="radio" value="Priest">
+                <label class="hs-class priest" for="priest0"></label>
+            </div>
+            </div>
+            <button id="wg3p2" class="game-3" type="button" value="win-game-3-p2">Win</button>
+            </div>
+        </div>
+        <input id="game3-result" type="text" value="" hidden>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <label>Replay Links</label>
+            <textarea name="replay-links" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <label>Screenshots</label>
+            <input name="screenshots" type="file">
+        </div>
+    </div>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script>
+$("#wg1p1").click(function() {
+    $("#wg1p2").attr("disabled", true);
+    $("#g1p1").addClass("win");
+    $("#game1-result").attr('value', 'player-1-win');
+});
+$("#wg1p2").click(function() {
+    $("#wg1p1").attr("disabled", true);
+    $("#g1p2").addClass("win");
+    $("#game1-result").attr('value', 'player-2-win');
+});
+$("#wg2p1").click(function() {
+    $("#wg2p2").attr("disabled", true);
+    $("#g2p1").addClass("win");
+    $("#game2-result").attr('value', 'player-1-win');
+});
+$("#wg2p2").click(function() {
+    $("#wg2p1").attr("disabled", true);
+    $("#g2p2").addClass("win");
+    $("#game2-result").attr('value', 'player-2-win');
+});
+$("#wg3p1").click(function() {
+    $("#wg3p2").attr("disabled", true);
+    $("#g3p1").addClass("win");
+    $("#game3-result").attr('value', 'player-1-win');
+});
+$("#wg3p2").click(function() {
+    $("#wg3p1").attr("disabled", true);
+    $("#g3p2").addClass("win");
+    $("#game3-result").attr('value', 'player-2-win');
+});
+</script>
+</body>
+</html>
