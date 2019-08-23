@@ -122,16 +122,16 @@
             </div>
         </div>
     </div>
-<form action="submit.php" method="POST">
+<form action="https://preferhome.com/submit.php" method="POST">
 
     <div class="row">
         <div class="col-6">
             <label><h3>Player 1</h3></label><br>
-            <input id="player1-select" type="text" name="player1" placeholder="Enter YOUR Battlenet ID">
+            <input id="player1-select" type="text" name="player1" value="" placeholder="Enter YOUR Battlenet ID">
         </div>
         <div class="col-6">
             <label><h3>Player 2</h3></label><br>
-            <input id="player2-select" type="text" name="player2" placeholder="Enter opponent's Battlenet ID">
+            <input id="player2-select" type="text" name="player2" value="" placeholder="Enter opponent's Battlenet ID">
         </div>
     </div>
     <div class="row">
@@ -389,7 +389,7 @@
             </div>
         </div>
     </div>
-    <input id="game2-result" type="text" value="" hidden>
+    <input id="game2-result" name="game2-result" type="text" value="" hidden>
     <hr>
 
     <div class="row">
@@ -456,7 +456,7 @@
             <button id="wg3p2" class="game-3" type="button" value="win-game-3-p2">Win</button>
             </div>
         </div>
-        <input id="game3-result" type="text" value="" hidden>
+        <input id="game3-result" name="game3-result" type="text" value="" hidden>
     </div>
     <hr>
 
@@ -480,35 +480,37 @@
 </form>
 
 <script>
+var player1 = $("#player1-select").val();
+var player2 = $("#player2-select").val();
 $("#wg1p1").click(function() {
     $("#wg1p2").attr("disabled", true);
     $("#g1p1").addClass("win");
-    $("#game1-result").attr('value', 'player-1-win');
+    $("#game1-result").attr('value', $("#player1-select").val() + " wins");
 });
 $("#wg1p2").click(function() {
     $("#wg1p1").attr("disabled", true);
     $("#g1p2").addClass("win");
-    $("#game1-result").attr('value', 'player-2-win');
+    $("#game1-result").attr('value', $("#player2-select").val() + " wins");
 });
 $("#wg2p1").click(function() {
     $("#wg2p2").attr("disabled", true);
     $("#g2p1").addClass("win");
-    $("#game2-result").attr('value', 'player-1-win');
+    $("#game2-result").attr('value', $("#player1-select").val() + " wins");
 });
 $("#wg2p2").click(function() {
     $("#wg2p1").attr("disabled", true);
     $("#g2p2").addClass("win");
-    $("#game2-result").attr('value', 'player-2-win');
+    $("#game2-result").attr('value', $("#player2-select").val() + " wins");
 });
 $("#wg3p1").click(function() {
     $("#wg3p2").attr("disabled", true);
     $("#g3p1").addClass("win");
-    $("#game3-result").attr('value', 'player-1-win');
+    $("#game3-result").attr('value', $("#player1-select").val() + " wins");
 });
 $("#wg3p2").click(function() {
     $("#wg3p1").attr("disabled", true);
     $("#g3p2").addClass("win");
-    $("#game3-result").attr('value', 'player-2-win');
+    $("#game3-result").attr('value', $("#player2-select").val() + " wins");
 });
 
 $("#player1-select").change(function () {

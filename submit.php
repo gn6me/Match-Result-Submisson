@@ -19,7 +19,7 @@
         $replay_link = $_POST['replay-links'];
         $screenshots = $_POST['imgur-links'];
         
-        $msg = "$player_1 VS $player_2 \n \n $player_1 \n Shield: $p1_shield \n Ban: $p1_ban \n \n $player_2 \n Shield: $p2_shield \n Ban: $p2_ban \n \n Game 1 Result: \n $p1_game1 VS $p2_game1 \n $game1_result \n \n Game 2 Result: \n $p1_game2 VS $p2_game2 \n $game2_result \n \n Game 3 Result: \n $p1_game3 VS $p2_game3 \n $game3_result \n \n Replay Links: \n $replay_link \n \n Screenshots: \n $screenshots";
+        $msg = "$player1 VS $player2 \n \n $player1 \n Shield: $p1_shield \n Ban: $p1_ban \n \n $player2 \n Shield: $p2_shield \n Ban: $p2_ban \n \n Game 1 Result: \n $p1_game1 VS $p2_game1 \n $game1_result \n \n Game 2 Result: \n $p1_game2 VS $p2_game2 \n $game2_result \n \n Game 3 Result: \n $p1_game3 VS $p2_game3 \n $game3_result \n \n Replay Links: \n $replay_link \n \n Screenshots: \n $screenshots";
 
         $email_from = "test@test.com";
         $email_subject = "Test form";
@@ -30,7 +30,6 @@
         $headers .= "Reply-To: $email \r\n";
         mail ($to,$email_subject,$email_body,$headers);
 
-        // Function to validate against any email injection attempts
         echo "Thank you"; 
 
 ?>
