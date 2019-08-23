@@ -17,22 +17,20 @@
         $game3_result = $_POST['game3-result'];
 
         $replay_link = $_POST['replay-links'];
-        //Get the uploaded file information
-        $name_of_uploaded_file = basename($_FILES['uploaded_file']['name']);
-        //get the file extension of the file
-        $type_of_uploaded_file = substr($name_of_uploaded_file, strrpos($name_of_uploaded_file, '.') + 1);
-        $size_of_uploaded_file = $_FILES["uploaded_file"]["size"]/1024;//size in KBs
+        $screenshots = $_POST['imgur-links'];
+        
+        $msg = "$player_1 VS $player_2 \n \n $player_1 \n Shield: $p1_shield \n Ban: $p1_ban \n \n $player_2 \n Shield: $p2_shield \n Ban: $p2_ban \n \n Game 1 Result: \n $p1_game1 VS $p2_game1 \n $game1_result \n \n Game 2 Result: \n $p1_game2 VS $p2_game2 \n $game2_result \n \n Game 3 Result: \n $p1_game3 VS $p2_game3 \n $game3_result \n \n Replay Links: \n $replay_link \n \n Screenshots: \n $screenshots"
 
-        $email_from = '';
-        $email_subject = "";
+        $email_from = 'test@test.com';
+        $email_subject = "Test form";
         $email_body = $msg;
 
-        $to = $recipient;
+        $to = "thegn6me@gmail.com";
         $headers = "From: $email_from \r\n";
         $headers .= "Reply-To: $email \r\n";
         mail ($to,$email_subject,$email_body,$headers);
 
         // Function to validate against any email injection attempts
-        header("location: "); 
+        echo "Thank you"; 
 
 ?>
