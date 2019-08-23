@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Match Result Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
@@ -26,6 +27,17 @@
         -ms-flex: 0 0 100%;
         max-width: 100%;
     }
+
+    h3 { font-size: 1.75rem; }
+    input[type="text"] {
+        padding: 10px 5px;
+        width: 35%;
+    }
+    button {
+        padding: 5px 25px;
+        font-weight: bold;
+    }
+
     .class-select { margin: 50px 0; }
     .class-select input {
         margin:0;padding:0;
@@ -82,31 +94,42 @@
         padding: 10px 0;
     }
 
+    @media screen and (max-width: 512px) {
+        .hs-class {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+    <div class="player-row">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="player-1"></h3>
+            </div>
+            <div class="col-6">
+                <h3 class="player-2"></h3>
+            </div>
+        </div>
+    </div>
 <form action="">
 
     <div class="row">
         <div class="col-6">
-            <label>Player 1</label>
-            <select>
-                <option value="" disabled selected>Select player 1</option>
-                <option value="mrgn0me#1196">mrgn0me</option>
-            </select>
+            <label><h3>Player 1</h3></label><br>
+            <input id="player1-select" type="text" name="player1" placeholder="Enter YOUR Battlenet ID">
         </div>
         <div class="col-6">
-            <label>Player 2</label>
-            <select>
-                <option value="" disabled selected>Select player 2</option>
-                <option value="mrgn0me#1196">mrgn0me</option>
-            </select>
+            <label><h3>Player 2</h3></label><br>
+            <input id="player2-select" type="text" name="player2" placeholder="Enter opponent's Battlenet ID">
         </div>
     </div>
     <div class="row">
         <div class="col-6">
-            <label>Shielded Class 1</label>
+            <label><h3>Shielded Class</h3></label>
             <div class="class-select">
             <div class="col-12">
                 <input id="warrior" name="s1" type="radio" value="Warrior">
@@ -135,7 +158,7 @@
             </div>
         </div>
         <div class="col-6">
-            <label>Shielded Class 2</label>
+            <label><h3>Shielded Class</h3></label>
             <div class="class-select">
             <div class="col-12">
                 <input id="warrior1" name="s2" type="radio" value="Warrior">
@@ -167,7 +190,7 @@
 
     <div class="row">
         <div class="col-6">
-            <label>Banned Class 1</label>
+            <label><h3>Banned Class</h3></label>
             <div class="class-select">
             <div class="col-12">
                 <input id="warrior2" name="s3" type="radio" value="Warrior">
@@ -196,7 +219,7 @@
             </div>
         </div>
         <div class="col-6">
-            <label>Banned Class 2</label>
+            <label><h3>Banned Class</h3></label>
             <div class="class-select">
             <div class="col-12">
                 <input id="warrior3" name="s4" type="radio" value="Warrior">
@@ -225,6 +248,7 @@
             </div>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-3">
             <div id="g1p1">
@@ -257,7 +281,7 @@
             <button id="wg1p1" class="game-1" type="button" value="win-game-1-p1">Win</button>
             </div>
         </div>
-        <div class="col-3 game">Game 1</div>
+        <div class="col-3 game"><h3>Game 1</h3></div>
         <div class="col-3">
             <div id="g1p2">
             <div class="class-select">
@@ -291,6 +315,7 @@
         </div>
     </div>
     <input id="game1-result" type="text" value="" hidden>
+    <hr>
 
     <div class="row">
         <div class="col-3">
@@ -324,7 +349,7 @@
             <button id="wg2p1" class="game-2" type="button" value="win-game-2-p1">Win</button>
             </div>
         </div>
-        <div class="col-3 game">Game 2</div>
+        <div class="col-3 game"><h3>Game 2</h3></div>
         <div class="col-3">
             <div id="g2p2">
             <div class="class-select">
@@ -358,6 +383,7 @@
         </div>
     </div>
     <input id="game2-result" type="text" value="" hidden>
+    <hr>
 
     <div class="row">
         <div class="col-3">
@@ -391,7 +417,7 @@
             <button id="wg3p1" class="game-3" type="button" value="win-game-3-p1">Win</button>
             </div>
         </div>
-        <div class="col-3 game">Game 3</div>
+        <div class="col-3 game"><h3>Game 3</h3></div>
         <div class="col-3">
             <div id="g3p2">
             <div class="class-select">
@@ -425,6 +451,7 @@
         </div>
         <input id="game3-result" type="text" value="" hidden>
     </div>
+    <hr>
 
     <div class="row">
         <div class="col-12">
@@ -474,6 +501,15 @@ $("#wg3p2").click(function() {
     $("#wg3p1").attr("disabled", true);
     $("#g3p2").addClass("win");
     $("#game3-result").attr('value', 'player-2-win');
+});
+
+$("#player1-select").change(function () {
+    var player1 = $("#player1-select").val();
+    $(".player-1").text(player1);
+});
+$("#player2-select").change(function () {
+    var player2 = $("#player2-select").val();
+    $(".player-2").text(player2);
 });
 </script>
 </body>
