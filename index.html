@@ -31,11 +31,16 @@
     h3 { font-size: 1.75rem; }
     input[type="text"] {
         padding: 10px 5px;
-        width: 35%;
+        width: 250px;
     }
     button {
         padding: 5px 25px;
         font-weight: bold;
+    }
+    input[type="submit"] {
+        padding: 5px 30px;
+        font-weight: bold;
+        margin-top: 20px;
     }
 
     .class-select { margin: 50px 0; }
@@ -99,6 +104,8 @@
             width: 28px;
             height: 28px;
         }
+        h3 { font-size: 1rem; }
+        input[type="text"] { width: 170px; }
     }
 
 </style>
@@ -455,14 +462,14 @@
 
     <div class="row">
         <div class="col-12">
-            <label>Replay Links</label>
-            <textarea name="replay-links" rows="4" cols="50"></textarea>
+            <label><h3>Replay Links</h3></label><br>
+            <textarea name="replay-links" rows="5" cols="50"></textarea>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <label>Screenshots</label>
+            <label><h3>Screenshots</h3></label>
             <input name="screenshots" type="file">
         </div>
     </div>
